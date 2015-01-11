@@ -1,0 +1,545 @@
+@charset "UTF-8";
+/*  Syntax Quick Reference
+  --------------------------
+  column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter)
+  span($ratio: 1, $offset: 0)
+  shift($ratios: 0, $col_or_span: column, $gutter: $jeet-gutter)
+  unshift()
+  edit()
+  center($max_width: 1410px, $pad: 0)
+  stack($pad: 0, $align: false)
+  unstack()
+  align($direction: both)
+  cf()
+*/
+/**
+ * Grid settings.
+ * All values are defaults and can therefore be easily overidden.
+ */
+/**
+ * List functions courtesy of the wonderful folks at Team Sass.
+ * Check out their awesome grid: Singularity.
+ */
+/**
+ * Get  percentage from a given ratio.
+ * @param {number} [$ratio=1] - The column ratio of the element.
+ * @returns {number} - The percentage value.
+ */
+/**
+ * Work out the column widths based on the ratio and gutter sizes.
+ * @param {number} [$ratios=1] - The column ratio of the element.
+ * @param {number} [$gutter=$jeet-gutter] - The gutter for the column.
+ * @returns {list} $width $gutter - A list containing the with and gutter for the element.
+ */
+/**
+ * Get the set layout direction for the project.
+ * @returns {string} $direction - The layout direction.
+ */
+/**
+ * Replace a specified list value with a new value (uses built in set-nth() if available)
+ * @param {list} $list - The list of values you want to alter.
+ * @param {number} $index - The index of the list item you want to replace.
+ * @param {*} $value - The value you want to replace $index with.
+ * @returns {list} $list - The list with the value replaced or removed.
+ * @warn if an invalid index is supplied.
+ */
+/**
+ * Reverse a list (progressively enhanced for Sass 3.3)
+ * @param {list} $list - The list of values you want to reverse.
+ * @returns {list} $result - The reversed list.
+ */
+/**
+ * Get the opposite direction to a given value.
+ * @param {string} $dir - The direction you want the opposite of.
+ * @returns {string} - The opposite direction to $dir.
+ * @warn if an incorrect string is provided.
+ */
+/**
+ * Style an element as a column with a gutter.
+ * @param {number} [$ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [$offset=0] - A offset specified as a fraction (see $ratios).
+ * @param {number} [$cycle=0] - Easily create an nth column grid where $cycle equals the number of columns.
+ * @param {number} [$uncycle=0] - Undo a previous cycle value to allow for a new one.
+ * @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
+ */
+/**
+ * An alias for the column mixin.
+ * @param [$args...] - All arguments get passed through to column().
+ */
+/**
+ * Get the width of a column and nothing else.
+ * @param {number} [$ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
+ */
+/**
+ * Get the gutter size of a column and nothing else.
+ * @param {number} [ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
+ */
+/**
+ * An alias for the column-width function.
+ * @param [$args...] - All arguments get passed through to column().
+ */
+/**
+ * An alias for the column-gutter function.
+ * @param [$args...] - All arguments get passed through to column().
+ */
+/**
+ * Style an element as a column without any gutters for a seamless row.
+ * @param {number} [$ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [$offset=0] - A offset specified as a fraction (see $ratios).
+ * @param {number} [cycle=0] - Easily create an nth column grid where cycle equals the number of columns.
+ * @param {number} [uncycle=0] - Undo a previous cycle value to allow for a new one.
+ */
+/**
+ * Reorder columns without altering the HTML.
+ * @param {number} [$ratios=0] - Specify how far along you want the element to move.
+ * @param {string} [$col-or-span=column] - Specify whether the element has a gutter or not.
+ * @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
+ */
+/**
+ * Reset an element that has had shift() applied to it.
+ */
+/**
+ * View the grid and its layers for easy debugging.
+ * @param {string} [$color=black] - The background tint applied.
+ * @param {boolean} [$important=false] - Whether to apply the style as !important.
+ */
+/**
+ *  Alias for edit().
+ */
+/**
+ * Horizontally center an element.
+ * @param {number} [$max-width=1410px] - The max width the element can be.
+ * @param {number} [$pad=0] - Specify the element's left and right padding.
+ */
+/**
+ * Uncenter an element.
+ */
+/**
+ * Stack an element so that nothing is either side of it.
+ * @param {number} [$pad=0] - Specify the element's left and right padding.
+ * @param {boolean/string} [$align=false] - Specify the text align for the element.
+ */
+/**
+ * Unstack an element.
+ */
+/**
+ * Center an element on either or both axes.
+ * @requires A parent container with relative positioning.
+ * @param {string} [$direction=both] - Specify which axes to center the element on.
+ */
+/**
+ * Apply a clearfix to an element.
+ */
+/* VARIABLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* MIXINS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* DEFAULT STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-family: 'Josefin Slab', serif; }
+
+section {
+  *zoom: 1;
+  margin-bottom: 40px; }
+  section:before, section:after {
+    content: '';
+    display: table; }
+  section:after {
+    clear: both; }
+  section:last-child {
+    margin-bottom: 0; }
+
+h2 {
+  margin-bottom: 20px; }
+
+a {
+  text-decoration: none; }
+
+img {
+  max-width: 100%; }
+
+/* WRAPPER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.wrapper {
+  text-align: center;
+  margin-top: 40px;
+  *zoom: 1;
+  width: auto;
+  max-width: 960px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0; }
+  .wrapper:before, .wrapper:after {
+    content: '';
+    display: table; }
+  .wrapper:after {
+    clear: both; }
+
+/* HEADER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+header nav {
+  *zoom: 1;
+  width: auto;
+  max-width: 90%;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0; }
+  header nav:before, header nav:after {
+    content: '';
+    display: table; }
+  header nav:after {
+    clear: both; }
+  header nav a {
+    color: #222;
+    opacity: .5;
+    border: 1px dashed #e0e0e0;
+    padding: 12px 0;
+    margin-bottom: 8px;
+    border-radius: 7px;
+    display: block; }
+    header nav a:hover {
+      opacity: 1; }
+
+/* MAIN STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+main {
+  padding: 15px; }
+
+/* SECTION.ABOUT STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.about .photo {
+  display: none; }
+  .about .photo img {
+    border-radius: 100%; }
+
+/* SECTION.PROJECT STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.project {
+  padding: 15px;
+  border: 1px solid #ededed; }
+  .project p {
+    padding: 10px;
+    margin-bottom: 5px; }
+  .project a {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 48.5%;
+    margin-left: 25.75%;
+    margin-right: 3%;
+    color: #222;
+    background: #ededed;
+    border: 1px solid #222;
+    font-weight: bold;
+    padding: 8px; }
+    .project a:before, .project a:after {
+      content: '';
+      display: table; }
+    .project a:after {
+      clear: both; }
+    .project a:last-child {
+      margin-right: 0%; }
+
+/* SECTION.SERVICES STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.services h3 {
+  padding: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px dashed #e0e0e0; }
+.services div {
+  margin-bottom: 10px;
+  border: 2px solid #e0e0e0; }
+  .services div p {
+    line-height: 1.7;
+    padding: 15px; }
+.services a {
+  color: dodgerblue; }
+  .services a:hover {
+    color: #005db7; }
+
+/* SECTION.WORK STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.work h3 {
+  padding: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px dashed #e0e0e0; }
+.work figure {
+  margin-bottom: 15px; }
+.work a {
+  color: #222;
+  opacity: .5; }
+  .work a:hover {
+    opacity: 1; }
+
+/* SECTION.BLOG STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.blog h3 {
+  padding: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px dashed #e0e0e0; }
+.blog article {
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0; }
+.blog p {
+  padding: 12px;
+  line-height: 1.7; }
+  .blog p:last-child {
+    padding: 0; }
+.blog a {
+  color: dodgerblue; }
+  .blog a:hover {
+    color: #005db7; }
+.blog .meta {
+  padding: 0 10px;
+  border-top: 1px dashed #e0e0e0; }
+  .blog .meta span {
+    color: #e0e0e0; }
+
+/* FOOTER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+footer h3 {
+  padding: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px dashed #e0e0e0; }
+footer div {
+  *zoom: 1;
+  width: auto;
+  max-width: 700px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0; }
+  footer div:before, footer div:after {
+    content: '';
+    display: table; }
+  footer div:after {
+    clear: both; }
+  footer div a {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 22.75%;
+    margin-left: 0%;
+    margin-right: 3%;
+    color: #222;
+    opacity: .5;
+    padding: 5px; }
+    footer div a:before, footer div a:after {
+      content: '';
+      display: table; }
+    footer div a:after {
+      clear: both; }
+    footer div a:last-child {
+      margin-right: 0%; }
+    footer div a:hover {
+      opacity: 1; }
+
+/* MQ-XS STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (min-width: 450px) {
+  .work figure {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 48.5%;
+    margin-left: 0%;
+    margin-right: 3%; }
+    .work figure:before, .work figure:after {
+      content: '';
+      display: table; }
+    .work figure:after {
+      clear: both; }
+    .work figure:nth-of-type(2n) {
+      margin-right: 0%;
+      float: right; }
+    .work figure:nth-of-type(2n + 1) {
+      clear: both; } }
+/* MQ-SM STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (min-width: 600px) {
+  header nav {
+    *zoom: 1;
+    width: auto;
+    max-width: 60%;
+    float: none;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0;
+    padding-right: 0; }
+    header nav:before, header nav:after {
+      content: '';
+      display: table; }
+    header nav:after {
+      clear: both; }
+    header nav a {
+      *zoom: 1;
+      float: left;
+      clear: none;
+      text-align: inherit;
+      width: 17.6%;
+      margin-left: 0%;
+      margin-right: 3%;
+      border: none;
+      margin-bottom: 15px; }
+      header nav a:before, header nav a:after {
+        content: '';
+        display: table; }
+      header nav a:after {
+        clear: both; }
+      header nav a:last-child {
+        margin-right: 0%; }
+
+  .services div {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 31.33333%;
+    margin-left: 0%;
+    margin-right: 3%; }
+    .services div:before, .services div:after {
+      content: '';
+      display: table; }
+    .services div:after {
+      clear: both; }
+    .services div:last-child {
+      margin-right: 0%; }
+
+  .blog article {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 50%;
+    margin-left: 0%;
+    margin-right: 0%; }
+    .blog article:before, .blog article:after {
+      content: '';
+      display: table; }
+    .blog article:after {
+      clear: both; }
+    .blog article:last-child {
+      border-left: none; } }
+/* MQ-MD STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (min-width: 800px) {
+  .about .photo {
+    display: block;
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 22.75%;
+    margin-left: 0%;
+    margin-right: 3%; }
+    .about .photo:before, .about .photo:after {
+      content: '';
+      display: table; }
+    .about .photo:after {
+      clear: both; }
+    .about .photo:last-child {
+      margin-right: 0%; }
+  .about .info {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 74.25%;
+    margin-left: 0%;
+    margin-right: 3%; }
+    .about .info:before, .about .info:after {
+      content: '';
+      display: table; }
+    .about .info:after {
+      clear: both; }
+    .about .info:last-child {
+      margin-right: 0%; }
+    .about .info p {
+      margin-bottom: 10px;
+      padding: 5px; }
+
+  .project p {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 74.25%;
+    margin-left: 0%;
+    margin-right: 3%;
+    position: relative;
+    left: 25.75%;
+    margin-bottom: 0; }
+    .project p:before, .project p:after {
+      content: '';
+      display: table; }
+    .project p:after {
+      clear: both; }
+    .project p:last-child {
+      margin-right: 0%; }
+  .project a {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 22.75%;
+    margin-left: 0%;
+    margin-right: 3%;
+    position: relative;
+    left: -77.25%; }
+    .project a:before, .project a:after {
+      content: '';
+      display: table; }
+    .project a:after {
+      clear: both; }
+    .project a:last-child {
+      margin-right: 0%; }
+
+  .work figure {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 22.75%;
+    margin-left: 0%;
+    margin-right: 3%; }
+    .work figure:before, .work figure:after {
+      content: '';
+      display: table; }
+    .work figure:after {
+      clear: both; }
+    .work figure:nth-of-type(2n) {
+      margin-right: 3%;
+      float: left; }
+    .work figure:nth-of-type(2n + 1) {
+      clear: none; }
+    .work figure:nth-of-type(4n) {
+      margin-right: 0%;
+      float: right; }
+    .work figure:nth-of-type(4n + 1) {
+      clear: both; } }
+/* MQ-LG STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (min-width: 960px) {
+  main {
+    border: 3px solid #fafafa; } }
+
+/*# sourceMappingURL=style.css.map */
